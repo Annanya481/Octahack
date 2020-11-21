@@ -9,7 +9,7 @@ app.set('view engine', 'ejs');
 app.get("/", function(req, res){
     res.render("report.ejs");
 })
-
+app.use(express.static("./static"));
 app.use(express.urlencoded({
     extended: true
 }))
@@ -24,5 +24,8 @@ app.post('/submit-form', (req, res) => {
         .write(data, { headers: true })
         .pipe(ws);
     res.end();
+})
+app.get("/map", function(req, res){
+    res.sendFile(__dirname+"/Engine/laPointMap.html");
 })
 app.listen(8000, ()=>{console.log("App listening on port 8000!")});

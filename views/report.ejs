@@ -2,7 +2,7 @@
 <html>
     <head>
         <title>Report</title>
-        <link rel="stylesheet" href="../css/report.css">
+        <link rel="stylesheet" href="report.css">
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
     </head>
     <body class="center-align form #212121 grey darken-4 white-text">
@@ -11,11 +11,15 @@
           <a href="#" class="brand-logo center">Draupadi</a>
         </div>
       </nav>
-      <form class="blue-grey darken-4" method="POST" action="/submit-form">
-        <h2>Report A Crime</h2>
-        <input placeholder="locality" id="locality" type="text" name="locality">
-        <textarea id="textarea" class="materialize-textarea" name="textarea"></textarea>
-        <button class="btn waves-effect waves-light" type="submit" name="action">Submit</button>
-      </form>
+      <div class="grid">
+
+        <form class="blue-grey darken-4" method="POST" action="/submit-form">
+          <h2>Report A Crime</h2>
+          <input placeholder="locality" id="locality" type="text" name="locality">
+          <textarea id="textarea" class="materialize-textarea" name="textarea"></textarea>
+          <button class="btn waves-effect waves-light" type="submit" name="action">Submit</button>
+        </form>
+        <iframe src="/map" title="mapp" width=500 height=500 ></iframe>
+      </div>
     </body>
 </html>
