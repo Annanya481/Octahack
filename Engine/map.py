@@ -6,12 +6,12 @@ from geopy.geocoders import Nominatim
 from folium.plugins import HeatMap
 
 
-df = pd.read_csv('loc.csv')
+df = pd.read_csv('dummie_data.csv')
 
 with open('map.geojson') as f:
     laArea = json.load(f)
 
-laMap = folium.Map(location=[18.516726,73.856255], tiles='Stamen Terrain', zoom_start=15)
+laMap = folium.Map(location=[18.516726,73.856255], tiles='Stamen Terrain', zoom_start=10)
 
 laMap=HeatMap(df).add_to(laMap)
 

@@ -4,6 +4,10 @@ const express = require('express');
 const app = express();
 const fastcsv = require('fast-csv');
 const ws = fs.createWriteStream("out.csv");
+const csvFilePath= "out.csv"
+const csv=require('csvtojson')
+
+
 app.set('view engine', 'ejs');
 
 app.get("/", function(req, res){
@@ -23,7 +27,11 @@ app.post('/submit-form', (req, res) => {
     fastcsv
         .write(data, { headers: true })
         .pipe(ws);
-    res.end();
+    csv().fromFile(csvFilePath).then((data)=>{
+      console.log(data);
+    })
+    res.render("report.ejs");
+    //res.end();
 })
 app.get("/map", function(req, res){
     res.sendFile(__dirname+"/Engine/laPointMap.html");
