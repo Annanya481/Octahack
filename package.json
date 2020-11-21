@@ -9,6 +9,7 @@
   "author": "Annanya Pandey",
   "license": "ISC",
   "dependencies": {
+    "alert": "^5.0.6",
     "csv-express": "^1.2.2",
     "csvtojson": "^2.0.10",
     "ejs": "^3.1.5",

@@ -1,9 +1,9 @@
-/* body{
+body{
   background-image: url('bg.png');
   background-repeat: no-repeat;
   background-position: center;
   background-size: cover;
-} */
+}
 
 .grid{
     display: grid;
@@ -36,4 +36,8 @@ table {
     width: 80%;
     height: auto;
     padding: 80px;
+}
+
+#police{
+  font-size: 20px;
 }

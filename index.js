@@ -6,11 +6,12 @@ const fastcsv = require('fast-csv');
 const ws = fs.createWriteStream("out.csv", {flag:"a"});
 const csvFilePath= "out.csv"
 const csv=require('csvtojson')
+const alert=require('alert')
 
 app.set('view engine', 'ejs');
 
 app.get("/", function(req, res){
-    CSVToJSON().fromFile('Table.csv')
+    csv().fromFile('Table.csv')
     .then(users => {
         console.log();
     }).catch(err => {
@@ -39,6 +40,7 @@ app.post('/submit-form', (req, res) => {
         // log error if any
         console.log(err);
     });
+    alert("Your report has been submitted!")
     res.render('report.ejs');
 })
 app.get("/map", function(req, res){
