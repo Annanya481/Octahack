@@ -1,9 +1,9 @@
-body{
+/* body{
   background-image: url('bg.png');
   background-repeat: no-repeat;
   background-position: center;
   background-size: cover;
-}
+} */
 
 .grid{
     display: grid;
