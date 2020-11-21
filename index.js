@@ -3,14 +3,20 @@ const fs = require('fs');
 const express = require('express');
 const app = express();
 const fastcsv = require('fast-csv');
-const ws = fs.createWriteStream("out.csv");
+const ws = fs.createWriteStream("out.csv", {flag:"a"});
 const csvFilePath= "out.csv"
 const csv=require('csvtojson')
-
 
 app.set('view engine', 'ejs');
 
 app.get("/", function(req, res){
+    CSVToJSON().fromFile('Table.csv')
+    .then(users => {
+        console.log();
+    }).catch(err => {
+        // log error if any
+        console.log(err);
+    });
     res.render("report.ejs");
 })
 app.use(express.static("./static"));
@@ -29,9 +35,11 @@ app.post('/submit-form', (req, res) => {
         .pipe(ws);
     csv().fromFile(csvFilePath).then((data)=>{
       console.log(data);
-    })
-    res.render("report.ejs");
-    //res.end();
+    }).catch(err => {
+        // log error if any
+        console.log(err);
+    });
+    res.render('report.ejs');
 })
 app.get("/map", function(req, res){
     res.sendFile(__dirname+"/Engine/laPointMap.html");
