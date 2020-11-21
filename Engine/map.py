@@ -11,7 +11,7 @@ df = pd.read_csv('dummie_data.csv')
 with open('map.geojson') as f:
     laArea = json.load(f)
 
-laMap = folium.Map(location=[18.516726,73.856255], tiles='Stamen Terrain', zoom_start=13)
+laMap = folium.Map(location=[18.516726,73.856255],  tiles = "Stamen Toner", zoom_start = 12)
 
 laMap=HeatMap(df).add_to(laMap)
 

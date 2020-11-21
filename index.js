@@ -10,7 +10,7 @@ const csv=require('csvtojson')
 app.set('view engine', 'ejs');
 
 app.get("/", function(req, res){
-    CSVToJSON().fromFile('Table.csv')
+    csv().fromFile('Table.csv')
     .then(users => {
         console.log();
     }).catch(err => {
