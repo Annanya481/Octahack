@@ -23,9 +23,14 @@ def get_best(text):
 
 def final_out(text):
     extractions = get_best(text)
-    return extractions[0][1], extractions[0][1]
-
-
+    lst_return = []
+    count = 0
+    for i in extractions:
+        count+=1
+        lst_return.append(i)
+        if count == 2:
+            break
+    return lst_return[0][1], lst_return[1][1]
 
 
 
